@@ -8,16 +8,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 
-import java.util.List;
 
 public class BaseTest {
     private WebDriver driver;
     protected HomePage homePage;
     @BeforeClass
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+        String osName = System.getProperty("os.name");
+        if(osName.equals("Mac")){
+            System.setProperty("webdriver.chrome.driver", "resources/Mac/chromedriver");
+        }else if(osName.equals("Linux")){
+            System.setProperty("webdriver.chrome.driver", "resources/Linux/chromedriver88");
+        }
+        //System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         // instanitate chrome driver
         driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
