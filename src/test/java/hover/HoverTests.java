@@ -1,13 +1,12 @@
 package hover;
 
-import Base.BaseTest;
-import Pages.HomePage;
+import Base.BaseTests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 @Test
-public class HoverTests extends BaseTest {
+public class HoverTests extends BaseTests {
    public void testHoverUser1(){
       var hoversPage = homePage.clickOnHovers();
       hoversPage.hoverOverFigure(1);

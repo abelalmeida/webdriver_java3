@@ -8,9 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 
-public class BaseTest {
+public class BaseTests {
     private WebDriver driver;
     protected HomePage homePage;
     @BeforeClass
@@ -24,7 +25,7 @@ public class BaseTest {
         //System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         // instanitate chrome driver
         driver = new ChromeDriver();
-        driver.get("https://the-internet.herokuapp.com/");
+        goHome();
         homePage = new HomePage(driver);
         /*WebElement inputsLink = driver.findElement(By.linkText("Shifting Content"));
         inputsLink.click();
@@ -38,6 +39,12 @@ public class BaseTest {
         //driver.manage().window().maximize();
         //driver.manage().window().setSize(new Dimension(375, 812));
         //System.out.println(driver.getTitle());
+    }
+
+    @BeforeMethod
+    public void goHome(){
+        driver.get("https://the-internet.herokuapp.com/");
+
     }
     @AfterClass
     public void tearDown(){

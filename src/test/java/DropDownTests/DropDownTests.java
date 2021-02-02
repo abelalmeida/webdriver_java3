@@ -1,13 +1,12 @@
 package DropDownTests;
 
-import Base.BaseTest;
-import Pages.DropDownPage;
+import Base.BaseTests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class DropDownTests extends BaseTest {
+public class DropDownTests extends BaseTests {
     @Test
     public void testSelectOption(){
        var dropDownPage = homePage.clickDropDown();

@@ -1,11 +1,11 @@
 package Slider;
 
-import Base.BaseTest;
+import Base.BaseTests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SliderTests extends BaseTest {
+public class SliderTests extends BaseTests {
     @Test
     public void testSliderToWholeNumber(){
         String value = "4";

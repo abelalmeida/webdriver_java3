@@ -7,6 +7,7 @@ public class AlertsPage {
     private WebDriver driver;
     private By triggerAlertButton = By.xpath(".//button[text()=\"Click for JS Alert\"]");
     private By triggerConfirmAlertButton = By.xpath(".//button[text()=\"Click for JS Confirm\"]");
+    private By triggerPromptAlertButton = By.xpath(".//button[text()='Click for JS Prompt']");
     private By results = By.id("result");
 
     public AlertsPage(WebDriver driver){
@@ -21,6 +22,9 @@ public class AlertsPage {
         driver.findElement(triggerConfirmAlertButton).click();
     }
 
+    public void triggerPrompt(){
+        driver.findElement(triggerPromptAlertButton).click();
+    }
     public void alert_clickToAccept(){
         driver.switchTo().alert().accept();
     }
@@ -31,6 +35,9 @@ public class AlertsPage {
 
     public String alert_getText(){
        return driver.switchTo().alert().getText();
+    }
+    public void alert_setinput(String text){
+        driver.switchTo().alert().sendKeys(text);
     }
 
     public String getResult(){

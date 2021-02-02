@@ -1,13 +1,12 @@
 package Keys;
 
-import Base.BaseTest;
-import Pages.KeyPressesPage;
+import Base.BaseTests;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class KeysTests extends BaseTest {
+public class KeysTests extends BaseTests {
     @Test
     public void testBackspace(){
         var keyPage = homePage.clickKeyPresses();

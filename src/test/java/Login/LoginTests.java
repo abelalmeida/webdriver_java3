@@ -1,12 +1,12 @@
 package Login;
 
-import Base.BaseTest;
+import Base.BaseTests;
 import Pages.LoginPage;
 import Pages.SecureAreaPage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
-public class LoginTests extends BaseTest {
+public class LoginTests extends BaseTests {
     @Test
     public void testSuccessfulLogin(){
       LoginPage loginPage = homePage.clickFormAuthentication();
