@@ -6,13 +6,15 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import utils.EventReporter;
 
 
 public class BaseTests {
-    private WebDriver driver;
+    private EventFiringWebDriver driver;
     protected HomePage homePage;
     @BeforeClass
     public void setUp(){
@@ -24,7 +26,8 @@ public class BaseTests {
         }
         //System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         // instanitate chrome driver
-        driver = new ChromeDriver();
+        driver = new EventFiringWebDriver(new ChromeDriver());
+        driver.register(new EventReporter());
         goHome();
         homePage = new HomePage(driver);
         /*WebElement inputsLink = driver.findElement(By.linkText("Shifting Content"));
