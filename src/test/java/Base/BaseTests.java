@@ -1,10 +1,8 @@
 package Base;
 
 import Pages.HomePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -14,6 +12,9 @@ import org.testng.annotations.BeforeMethod;
 public class BaseTests {
     private WebDriver driver;
     protected HomePage homePage;
+    public static void setupDriver(){
+        WebDriverManager.chromedriver().setup();
+    }
     @BeforeClass
     public void setUp(){
         String osName = System.getProperty("os.name");
@@ -24,6 +25,9 @@ public class BaseTests {
         }
         //System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         // instanitate chrome driver
+
+        //setup Driver
+        setupDriver();
         driver = new ChromeDriver();
         goHome();
         homePage = new HomePage(driver);

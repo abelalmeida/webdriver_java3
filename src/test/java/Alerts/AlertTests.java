@@ -4,15 +4,14 @@ import Base.BaseTests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class AlertTests extends BaseTests {
     @Test
     public void testAcceptAlert(){
-     var alertPage =   homePage.clickAlertPage();
+     var alertPage =  homePage.clickAlertPage();
      alertPage.triggerAlert();
      alertPage.alert_clickToAccept();
-     assertEquals(alertPage.getResult(),"You successfuly clicked an alert","Result wrong");
+     assertEquals(alertPage.getResult(),"You successfully clicked an alert","Result wrong");
     }
     @Test
     public void testGetTextFromAlert(){
