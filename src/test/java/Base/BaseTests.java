@@ -4,12 +4,15 @@ import Pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import utils.EventReporter;
 
 
 public class BaseTests {
+    private EventFiringWebDriver efDriver;
     private WebDriver driver;
     protected HomePage homePage;
     public static void setupDriver(){
@@ -25,6 +28,8 @@ public class BaseTests {
         }
         //System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         // instanitate chrome driver
+        efDriver = new EventFiringWebDriver(new ChromeDriver());
+        efDriver.register(new EventReporter());
 
         //setup Driver
         setupDriver();
